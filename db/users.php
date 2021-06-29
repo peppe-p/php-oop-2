@@ -26,11 +26,16 @@ class Premium extends User
     protected $sconto;
     protected $points;
 
-    function __construct($name, $lastname, $email, $age, $sconto, $points)
+    function __construct(string $name, string $lastname, string $email, int $age, int $sconto, int $points)
     {
         parent::__construct($name, $lastname, $email, $age);
         $this->sconto = $sconto;
         $this->points = $points;
+    }
+
+    public function calcSconto()
+    {
+        return "Sconto applicato";
     }
 }
 
