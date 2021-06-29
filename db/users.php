@@ -33,3 +33,15 @@ class Premium extends User
         $this->points = $points;
     }
 }
+
+
+$users = [
+    new User("Giacomo", "Petrucci", "giacomop@gmail.com", 43),
+    new User("Angela", "Bella", "angelina@gmail.com", 63),
+    new User("Alex", "Benviento", "pviento@gmail.com", 25),
+];
+
+$premium = [
+    new Premium("Nando", "Gonzales", "nanndo9@gmail.com", 31, 30, 278),
+    new Premium("Luna", "Certo", "lunetta23@gmail.com", 21, 30, 178),
+];
