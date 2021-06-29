@@ -4,9 +4,9 @@ require('./traits.php');
 
 class Product
 {
-    protected $name;
-    protected $desc;
-    protected $price;
+    public $name;
+    public $desc;
+    public $price;
 
 
     function __construct(string $name, string $desc, float $price)
@@ -31,9 +31,9 @@ class Car extends Product
     public function getPrice(int $price)
     {
         if (!is_int($price)) {
-            throw new Exception('Is not a number');
+            throw new Exception('Is not a number', "0022");
         }
-        return "Il prezzo è di" . $this->price . "€";
+        return "Il prezzo è di " . $this->price . "€";
     }
 }
 
@@ -50,13 +50,13 @@ class Moto extends Product
 
 $cars = [
     new Car("BMW", "Lorem ipsum diet.", 3484, "Benzina"),
-    new Car("Mercedes", "Lorem ipsum diet.", 56484, "Diesel"),
+    new Car("Mercedes", "Lorem ipsum diet.", "3232", "Diesel"),
     new Car("Audi", "Lorem ipsum diet.", 6584, "Benzina"),
 ];
 
 $moto = [
     new Moto("BMW", "Lorem ipsum.", 813, "Benzina"),
-    new Moto("Mercedes", "Lorem ipsum.", 313, "Elettrico"),
+    new Moto("Mercedes", "Lorem ipsum.", "313", "Elettrico"),
     new Moto("Audi", "Lorem ipsum.", 913, "Elettrico"),
 
 ];
@@ -77,7 +77,15 @@ $moto = [
     <?php foreach ($cars as $car) : ?>
     <h3><?= $car->name ?></h3>
     <h4><?= $car->desc ?></h4>
-
+    <h4>
+        <?php
+            try {
+                echo $car->getPrice($car->price);
+            } catch (Exception $e) {
+                echo 'Errore: ' . $e->getMessage() . ' Codice Errore: ' . $e->getCode();
+            }
+            ?>
+    </h4>
     <?php endforeach ?>
 </body>
 
