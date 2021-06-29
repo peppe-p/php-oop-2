@@ -10,4 +10,14 @@ class Cards
     {
         return $this->code;
     }
+
+    public function getScad()
+    {
+        return $this->scad;
+    }
+
+    public function getCCV()
+    {
+        return $this->ccv;
+    }
 }
